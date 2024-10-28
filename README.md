@@ -1,4 +1,4 @@
-# Important Notes on C++ Concepts
+# Important Notes on C++ Concepts (Detailed Markdown Documentation)
 
 This repository contains important notes on various C++ concepts, organized in the `IMPORTANT_NOTES.MD` file. Each section in the notes file provides a brief overview of a specific topic, and references to corresponding `.cpp` files for detailed explanations and examples.
 

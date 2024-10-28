@@ -20,12 +20,6 @@
 17. [Pass by Value and Reference in C++](#pass-by-value-and-reference-in-c)
 18. [Dynamic Memory Management in C++](#dynamic-memory-management-in-c)
 19. [Pointer and Array Arithmetic in C++](#pointer-and-array-arithmetic-in-c)
-20. [Passing Arrays to Functions in C++](#passing-arrays-to-functions-in-c)
-21. [Function Pointers in C++](#function-pointers-in-c)
-22. [Lvalue and Rvalue References in C++](#lvalue-and-rvalue-references-in-c)
-23. [Move Semantics in C++](#move-semantics-in-c)
-24. [Casting in C++](#casting-in-c)
-25. [Smart Pointers in C++](#smart-pointers-in-c)
 ---
 
 
@@ -275,136 +269,38 @@ For detailed examples and explanations, refer to [26_pointer_array_arithmetic.md
 ---
 
 
-#### Passing Arrays to Functions in C++
-- 📋 **Advantages of `std::vector` over Raw Arrays**:
-  - **Bounds Checking**: `std::vector` provides bounds checking with the `at()` method, reducing the risk of accessing out-of-bounds elements.
-  - **Dynamic Sizing**: `std::vector` can dynamically resize itself, whereas raw arrays have a fixed size.
-  - **Ease of Passing**: `std::vector` can be passed by reference, avoiding the need to pass the size separately.
-  - **Rich Interface**: `std::vector` provides a rich set of member functions for various operations.
-- 📋 **Disadvantages of `std::vector`**:
-  - **Slight Overhead**: `std::vector` may have a slight performance overhead compared to raw arrays due to dynamic memory management.
 
-For detailed examples and explanations, refer to [28_passing_arrays_to_functions.md](Markdown_Files/28_passing_arrays_to_functions.md).
 
 
 ---
 
 
-#### Function Pointers in C++
-- 📋 **Direct Function Pointer**: Directly assigns a function to a function pointer and calls it.
-- 📋 **Typedef Function Pointer**: Uses `typedef` to simplify the syntax of function pointers.
-- 📋 **Using `std::function`**: Uses `std::function` to store and call a function.
-- 📋 **Pros and Cons**:
-  - **Direct Function Pointer**:
-    - **Pros**: Simple and straightforward, no additional overhead.
-    - **Cons**: Syntax can be cumbersome, limited to function pointers only.
-  - **Typedef Function Pointer**:
-    - **Pros**: Simplifies the syntax, easier to manage and read.
-    - **Cons**: Still limited to function pointers, typedefs can sometimes obscure the actual type.
-  - **std::function**:
-    - **Pros**: More flexible and powerful, can store any callable object, easier to use with modern C++ features.
-    - **Cons**: Slightly more overhead compared to raw function pointers, requires inclusion of the `<functional>` header.
 
-For detailed examples and explanations, refer to [30_function_pointers.md](Markdown_Files/30_function_pointers.md).
 
 
 ---
 
 
-#### Lvalue and Rvalue References in C++
-- 📋 **Lvalue Reference**: A reference that binds to an lvalue.
-- 📋 **Rvalue Reference**: A reference that binds to an rvalue.
-- 📋 **Using `std::move`**: Converts an lvalue to an rvalue.
-- 📋 **Const References**: Prevents modification of the referenced value.
-- 📋 **Pros and Cons**:
-  - **Lvalue References**:
-    - **Pros**: Can modify the original variable, useful for passing large objects without copying.
-    - **Cons**: Can lead to unintended side effects if the original variable is modified.
-  - **Rvalue References**:
-    - **Pros**: Enable move semantics, which can improve performance by avoiding unnecessary copies.
-    - **Cons**: Can be tricky to use correctly, especially with `std::move` and `std::forward`.
-  - **Const References**:
-    - **Pros**: Prevent modification of the referenced value, which can avoid unintended side effects and errors.
-    - **Cons**: Cannot modify the original variable through the reference.
 
-For detailed examples and explanations, refer to [31_lvalue_rvalue_lvalueReference_rvalueReference.md](Markdown_Files/31_lvalue_rvalue_lvalueReference_rvalueReference.md).
+
 
 ---
 
 
 
-#### Move Semantics in C++
-- 📋 **Move Constructor**: Transfers ownership of resources from one object to another.
-- 📋 **Move Assignment Operator**: Transfers ownership of resources from one object to another during assignment.
-- 📋 **Destructor**: Cleans up resources when an object is destroyed.
-- 📋 **Copy Assignment Operator**: Copies resources from one object to another during assignment.
-- 📋 **Pros and Cons**:
-  - **Move Constructor**:
-    - **Pros**: Efficiently transfers resources without copying, avoids unnecessary allocations and deallocations.
-    - **Cons**: Requires careful handling to avoid dangling pointers.
-  - **Move Assignment Operator**:
-    - **Pros**: Efficiently transfers resources during assignment, avoids unnecessary allocations and deallocations.
-    - **Cons**: Requires careful handling to avoid dangling pointers.
-  - **Destructor**:
-    - **Pros**: Ensures proper cleanup of resources.
-    - **Cons**: Must be defined if resources are managed manually.
-  - **Copy Assignment Operator**:
-    - **Pros**: Provides a way to copy resources from one object to another.
-    - **Cons**: Can be less efficient than move operations.
-- 📋 **Important Considerations**:
-  - **Defining a Destructor, Copy Constructor, or Copy Assignment Operator**: Prevents the compiler from automatically generating move operations.
-  - **Defining Move Operations**: Prevents the compiler from automatically generating copy operations.
-  - **Explicitly Deleting Operations**: Prevents their generation.
 
-For detailed examples and explanations, refer to [32_move_semantics.md](Markdown_Files/32_move_semantics.md).
 
 
 ---
 
 
-#### Casting in C++
-- 📋 **`static_cast`**: Used for compile-time type conversions.
-- 📋 **`dynamic_cast`**: Used for safe downcasting in inheritance hierarchies.
-- 📋 **`const_cast`**: Used to add or remove `const` or `volatile` qualifiers.
-- 📋 **`reinterpret_cast`**: Used for low-level reinterpreting of bit patterns.
 
-For detailed examples and explanations, refer to [05_types_of_casts.md](Markdown_Files/05_types_of_casts.md).
 
 
 ---
 
 
-#### Smart Pointers in C++
-- 📋 **Raw Pointers**:
-  - Direct control over memory allocation and deallocation.
-  - Can be more efficient in certain low-level programming scenarios.
-  - Manual memory management can lead to memory leaks and dangling pointers.
-  - Error-prone and harder to maintain.
-- 📋 **Smart Pointers**:
-  - Automatic memory management reduces the risk of memory leaks.
-  - Easier to use and maintain.
-  - Provides better safety and exception handling.
-  - Slightly more overhead due to automatic management.
-  - Requires understanding of different types of smart pointers (`unique_ptr`, `shared_ptr`, `weak_ptr`).
-- 📋 **`unique_ptr`**:
-  - Provides exclusive ownership of a dynamically allocated object.
-  - Ensures that the object is deleted when the `unique_ptr` goes out of scope.
-  - Cannot be copied, but can be moved to transfer ownership.
-  - Ideal for managing resources with a single owner.
-- 📋 **`shared_ptr`**:
-  - Provides shared ownership of a dynamically allocated object.
-  - Uses reference counting to keep track of how many `shared_ptr` instances own the same object.
-  - The object is deleted when the last `shared_ptr` owning it is destroyed.
-  - Can be copied and assigned, allowing multiple `shared_ptr` instances to share ownership.
-  - Useful for scenarios where multiple parts of a program need to share access to a resource.
-- 📋 **`weak_ptr`**:
-  - Provides a non-owning reference to an object managed by a `shared_ptr`.
-  - Does not affect the reference count of the `shared_ptr`.
-  - Can be used to break circular references that can occur with `shared_ptr`.
-  - Allows checking if the object still exists before accessing it using the `lock()` method.
-  - Useful for caching, observer patterns, and avoiding cyclic dependencies.
 
-For detailed examples and explanations, refer to [33_smart_pointers.md](Markdown_Files/33_smart_pointers.md).
 
 
 ---

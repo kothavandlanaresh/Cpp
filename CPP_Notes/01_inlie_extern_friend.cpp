@@ -36,16 +36,23 @@ private:
     int secret;
 
 public:
-    MyClass(int val) : secret(val) {}
+    MyClass(int val) : secret(val) {
+    }
 
     // Friend function declaration
-    friend void revealSecret(const MyClass& obj);
+    friend void revealSecret(const MyClass &obj);
 };
 
 // Friend function definition
-void revealSecret(const MyClass& obj) {
+void revealSecret(const MyClass &obj) {
     std::cout << "The secret value is: " << obj.secret << std::endl;
 }
+
+void revealSecret(const MyClass obj) {
+    // std::cout << "The secret value is: "
+    // << obj.secret << std::endl;
+}
+
 
 // Extern variable definition
 int globalVar = 42;
@@ -53,10 +60,12 @@ int globalVar = 42;
 int main() {
     // Using inline function
     int result = add(3, 4);
-    std::cout << "Result of inline add function: " << result << std::endl;
+    std::cout << "Result of inline add function: "
+            << result << std::endl;
 
     // Using extern variable
-    std::cout << "Value of extern globalVar: " << globalVar << std::endl;
+    std::cout << "Value of extern globalVar: "
+            << globalVar << std::endl;
 
     // Using friend function
     MyClass obj(99);

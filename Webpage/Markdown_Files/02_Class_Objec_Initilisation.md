@@ -1,9 +1,47 @@
+## Overview
+Demonstrates various types of object initialization in C++.
+
+## Key Points
+
+- **Direct Initialization**:
+  - 📋 Directly calls the constructor of `MyClass` with the argument.
+  - **Example**:
+    ```cpp
+    MyClass obj1(99);
+    ```
+
+- **Copy Initialization**:
+  - 📋 Looks like an assignment but calls the constructor of `MyClass` with the argument.
+  - **Example**:
+    ```cpp
+    MyClass obj2 = 99;
+    ```
+
+- **Uniform Initialization (Brace Initialization)**:
+  - 📋 Uses braces `{}` to initialize the object. It is part of the C++11 standard and later.
+  - **Example**:
+    ```cpp
+    MyClass obj3{99};
+    ```
+
+- **Default Initialization**:
+  - 📋 Calls the default constructor of `MyClass`.
+  - **Example**:
+    ```cpp
+    MyClass obj4;
+    ```
+
+## Example Code
+
+```cpp
+#include <iostream>
+
 /**
  * @file 02_ClassObjecInitilisation.cpp
  * @brief Demonstrates various types of object initialization in C++.
  *
- * This file contains a class `MyClass` with both a parameterized constructor and a default constructor.
- * It showcases different ways to initialize objects of this class in the `main` function.
+ * This file contains a class [`MyClass`](command:_github.copilot.openSymbolFromReferences?%5B%22%22%2C%5B%7B%22uri%22%3A%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FC%3A%2FUsers%2Fk6ros%2FDocuments%2FGitHub%2FCPP%2FCPP_Notes%2F02_Class_Objec_Initilisation.cpp%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%2C%22pos%22%3A%7B%22line%22%3A4%2C%22character%22%3A31%7D%7D%5D%2C%2250c07ae0-8fcd-4f64-8924-a6a33245f97c%22%5D "Go to definition") with both a parameterized constructor and a default constructor.
+ * It showcases different ways to initialize objects of this class in the [`main`](command:_github.copilot.openSymbolFromReferences?%5B%22%22%2C%5B%7B%22uri%22%3A%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FC%3A%2FUsers%2Fk6ros%2FDocuments%2FGitHub%2FCPP%2FCPP_Notes%2F02_Class_Objec_Initilisation.cpp%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%2C%22pos%22%3A%7B%22line%22%3A5%2C%22character%22%3A75%7D%7D%5D%2C%2250c07ae0-8fcd-4f64-8924-a6a33245f97c%22%5D "Go to definition") function.
  *
  * The following types of initialization are demonstrated:
  *
@@ -64,7 +102,6 @@ public:
 
 private:
     int value;
-
 };
 
 int main() {
